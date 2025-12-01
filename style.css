@@ -1,0 +1,255 @@
+/* --- ESTILOS BASE Y TIPOGRAFÍA --- */
+
+:root {
+    --color-primario: #4A6C58; /* Tono verde oscuro (naturaleza) */
+    --color-secundario: #D4B996; /* Tono crema/tierra (orgánico) */
+    --color-fondo: #F5F5F0; /* Blanco roto */
+    --color-texto: #333333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Reemplazar con una fuente más bonita en un proyecto real */
+    line-height: 1.6;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primario);
+}
+
+section {
+    padding: 40px 5%; /* Padding lateral para evitar que el contenido toque los bordes */
+}
+
+/* --- ENCABEZADO Y NAVEGACIÓN --- */
+
+header {
+    background-color: var(--color-primario);
+    color: white;
+    padding: 15px 5%;
+    display: flex; /* Usamos Flexbox para alinear el logo y el menú */
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo img {
+    max-width: 120px;
+    height: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- SECCIÓN HERO (INICIO) --- */
+
+.hero {
+    background-color: var(--color-secundario);
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: var(--color-primario);
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* --- BOTONES GENERALES --- */
+
+.boton {
+    display: inline-block;
+    background-color: var(--color-primario);
+    color: white !important;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+.boton:hover {
+    background-color: #385542; /* Un tono más oscuro */
+}
+
+/* --- SECCIÓN DE PRODUCTOS --- */
+
+.productos {
+    text-align: center;
+}
+
+.productos h2 {
+    margin-bottom: 30px;
+    color: var(--color-primario);
+}
+
+.galeria-productos {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los productos se envuelvan en pantallas pequeñas */
+    gap: 30px;
+    justify-content: center;
+}
+
+.producto {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    /* Define un ancho base para escritorio y usa flex para crecer/encoger */
+    width: calc(33% - 20px); 
+    min-width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.producto img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.producto h3 {
+    color: var(--color-primario);
+    margin-bottom: 5px;
+}
+
+.boton-comprar {
+    margin-top: 10px;
+    display: block;
+}
+
+/* --- SECCIÓN HISTORIA Y CONTACTO --- */
+
+.historia, .contacto {
+    background-color: white;
+    text-align: center;
+}
+
+.historia h2, .contacto h2 {
+    color: var(--color-primario);
+    margin-bottom: 20px;
+}
+
+/* Estilos de Formulario de Contacto */
+.contacto form {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contacto label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.contacto input[type="text"],
+.contacto input[type="email"],
+.contacto textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contacto textarea {
+    resize: vertical;
+}
+
+.contacto button[type="submit"] {
+    margin-top: 20px;
+    width: 100%;
+    border: none;
+}
+
+/* --- PIE DE PÁGINA --- */
+
+footer {
+    background-color: var(--color-primario);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+}
+
+/* ================================================= */
+/* --- MEDIA QUERIES (Para hacerla RESPONSIVE) --- */
+/* ================================================= */
+
+/* Se aplica a pantallas más pequeñas (como tabletas) */
+@media (max-width: 768px) {
+    
+    /* CABECERA: La navegación se apila */
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav ul {
+        padding: 10px 0 5px 0;
+        justify-content: center; /* Centra los enlaces */
+        flex-wrap: wrap;
+    }
+    
+    /* PRODUCTOS: Dos columnas */
+    .producto {
+        width: calc(50% - 15px); /* Dos productos por fila */
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+}
+
+/* Se aplica a los teléfonos móviles */
+@media (max-width: 576px) {
+    
+    section {
+        padding: 30px 4%;
+    }
+    
+    /* PRODUCTOS: Una sola columna para móviles */
+    .producto {
+        width: 100%; /* Un producto por fila */
+        min-width: initial;
+    }
+
+    nav ul {
+        flex-direction: column; /* Un enlace por línea */
+        gap: 5px;
+    }
+
+    nav a {
+        display: block;
+    }
+}
