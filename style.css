@@ -269,12 +269,13 @@ img {
     height: auto;
 }
 
-/* Imagen del héroe */
 .imagen-hero {
-    width: 100%;
-    max-height: 500px;
-    object-fit: cover;
+    width: auto; /* Ancho automático según la imagen */
+    max-width: 100%; /* Pero no más ancho que su contenedor */
+    height: auto; /* Altura automática manteniendo proporción */
     border-radius: 10px;
+    display: block; /* Hace que se comporte como bloque */
+    margin: 0 auto; /* Centra horizontalmente */
 }
 
 /* Contenedor para imágenes de productos */
