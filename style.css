@@ -358,11 +358,11 @@ img {
 }
 
 .info-contacto-footer a {
-    color: #2c8c5c;
+    color: #e2ece7e1;
     text-decoration: none;
 }
 
 .info-contacto-footer a:hover {
     text-decoration: underline;
-    color: #1e6b42;
+    color: #d3dfd8ec;
 }
