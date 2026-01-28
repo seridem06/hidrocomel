@@ -1,10 +1,11 @@
-/* --- ESTILOS BASE Y TIPOGRAFÍA --- */
-
 :root {
-    --color-primario: #4A6C58; /* Tono verde oscuro (naturaleza) */
-    --color-secundario: #D4B996; /* Tono crema/tierra (orgánico) */
-    --color-fondo: #F5F5F0; /* Blanco roto */
-    --color-texto: #333333;
+    --color-primario: #2D4F3E; /* Verde más profundo y elegante */
+    --color-secundario: #E8DFD0; /* Beige arena suave */
+    --color-acento: #D4AF37; /* Dorado sutil para detalles */
+    --color-fondo: #FAFAF8; /* Casi blanco, textura papel */
+    --color-texto: #2C2C2C;
+    --sombra-suave: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --transicion: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 * {
@@ -14,356 +15,285 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif; /* Reemplazar con una fuente más bonita en un proyecto real */
-    line-height: 1.6;
+    font-family: 'Raleway', sans-serif;
     color: var(--color-texto);
     background-color: var(--color-fondo);
+    overflow-x: hidden;
 }
 
-a {
-    text-decoration: none;
-    color: var(--color-primario);
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif; /* Toque editorial/premium */
+    letter-spacing: -0.5px;
 }
 
-section {
-    padding: 40px 5%; /* Padding lateral para evitar que el contenido toque los bordes */
+/* --- ANIMACIONES DE ENTRADA (Scroll Reveal) --- */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: var(--transicion);
+}
+.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* --- ENCABEZADO Y NAVEGACIÓN --- */
-
+/* --- HEADER FLOTANTE --- */
 header {
-    background-color: var(--color-primario);
-    color: white;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px); /* Efecto cristal */
     padding: 15px 5%;
-    display: flex; /* Usamos Flexbox para alinear el logo y el menú */
+    display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
 }
 
-header .logo img {
-    max-width: 120px;
-    height: auto;
+.logo img {
+    max-width: 140px;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 30px;
 }
 
 nav a {
-    color: white;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    text-decoration: none;
+    color: var(--color-texto);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    transition: color 0.3s;
 }
 
-nav a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--color-primario);
+    transition: width 0.3s;
 }
 
-/* --- SECCIÓN HERO (INICIO) --- */
+nav a:hover::after {
+    width: 100%;
+}
 
+/* --- HERO SECTION --- */
 .hero {
-    background-color: var(--color-secundario);
-    padding: 60px 5%;
-    text-align: center;
+    background: linear-gradient(135deg, var(--color-secundario) 0%, #fff 100%);
+    padding: 80px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 80vh;
+}
+
+.hero-contenido {
+    flex: 1;
+    padding-right: 50px;
 }
 
 .hero h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+    font-size: 4em;
     color: var(--color-primario);
-}
-
-.hero p {
-    font-size: 1.2em;
+    line-height: 1.1;
     margin-bottom: 20px;
 }
 
-/* --- BOTONES GENERALES --- */
+.hero p {
+    font-size: 1.3em;
+    margin-bottom: 35px;
+    color: #555;
+    font-weight: 300;
+}
 
+.hero-imagen {
+    flex: 1;
+    position: relative;
+}
+
+.hero-imagen img {
+    border-radius: 20px;
+    box-shadow: 20px 20px 0 var(--color-primario); /* Estilo gráfico moderno */
+    transform: rotate(-2deg);
+    transition: var(--transicion);
+}
+
+.hero-imagen:hover img {
+    transform: rotate(0deg) scale(1.02);
+}
+
+/* --- BOTONES --- */
 .boton {
     display: inline-block;
     background-color: var(--color-primario);
-    color: white !important;
-    padding: 10px 25px;
-    border-radius: 5px;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: background-color 0.3s;
+    color: white;
+    padding: 15px 35px;
+    border-radius: 50px; /* Redondeado moderno */
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(45, 79, 62, 0.3);
+    transition: var(--transicion);
+    border: none;
+    cursor: pointer;
 }
 
 .boton:hover {
-    background-color: #385542; /* Un tono más oscuro */
+    background-color: #1e362a;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(45, 79, 62, 0.4);
 }
 
-/* --- SECCIÓN DE PRODUCTOS --- */
-
+/* --- PRODUCTOS --- */
 .productos {
+    padding: 80px 5%;
     text-align: center;
 }
 
 .productos h2 {
-    margin-bottom: 30px;
+    font-size: 3em;
     color: var(--color-primario);
+    margin-bottom: 60px;
 }
 
-.galeria-productos {
-    display: flex;
-    flex-wrap: wrap; /* Permite que los productos se envuelvan en pantallas pequeñas */
-    gap: 30px;
-    justify-content: center;
-}
-
-.producto {
-    background-color: white;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    /* Define un ancho base para escritorio y usa flex para crecer/encoger */
-    width: calc(33% - 20px); 
-    min-width: 250px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-}
-
-.producto img {
-    width: 100%;
-    max-height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-bottom: 15px;
-}
-
-.producto h3 {
-    color: var(--color-primario);
-    margin-bottom: 5px;
-}
-
-.boton-comprar {
-    margin-top: 10px;
-    display: block;
-}
-
-/* --- SECCIÓN HISTORIA Y CONTACTO --- */
-
-.historia, .contacto {
-    background-color: white;
-    text-align: center;
-}
-
-.historia h2, .contacto h2 {
-    color: var(--color-primario);
-    margin-bottom: 20px;
-}
-
-/* Estilos de Formulario de Contacto */
-.contacto form {
-    max-width: 500px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-.contacto label {
-    display: block;
-    margin-top: 15px;
-    font-weight: bold;
-}
-
-.contacto input[type="text"],
-.contacto input[type="email"],
-.contacto textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.contacto textarea {
-    resize: vertical;
-}
-
-.contacto button[type="submit"] {
-    margin-top: 20px;
-    width: 100%;
-    border: none;
-}
-
-/* --- PIE DE PÁGINA --- */
-
-footer {
-    background-color: var(--color-primario);
-    color: white;
-    text-align: center;
-    padding: 20px;
-    font-size: 0.9em;
-}
-
-/* ================================================= */
-/* --- MEDIA QUERIES (Para hacerla RESPONSIVE) --- */
-/* ================================================= */
-
-/* Se aplica a pantallas más pequeñas (como tabletas) */
-@media (max-width: 768px) {
-    
-    /* CABECERA: La navegación se apila */
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    nav ul {
-        padding: 10px 0 5px 0;
-        justify-content: center; /* Centra los enlaces */
-        flex-wrap: wrap;
-    }
-    
-    /* PRODUCTOS: Dos columnas */
-    .producto {
-        width: calc(50% - 15px); /* Dos productos por fila */
-    }
-
-    .hero h1 {
-        font-size: 2em;
-    }
-}
-
-/* Se aplica a los teléfonos móviles */
-@media (max-width: 576px) {
-    
-    section {
-        padding: 30px 4%;
-    }
-    
-    /* PRODUCTOS: Una sola columna para móviles */
-    .producto {
-        width: 100%; /* Un producto por fila */
-        min-width: initial;
-    }
-
-    nav ul {
-        flex-direction: column; /* Un enlace por línea */
-        gap: 5px;
-    }
-
-    nav a {
-        display: block;
-    }
-    
-}
-
-/* Estilos generales para imágenes */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Logo */
-.logo-imagen {
-    max-width: 150px;
-    width: 100%;
-    height: auto;
-}
-
-.imagen-hero {
-    width: auto; /* Ancho automático según la imagen */
-    max-width: 100%; /* Pero no más ancho que su contenedor */
-    height: auto; /* Altura automática manteniendo proporción */
-    border-radius: 10px;
-    display: block; /* Hace que se comporte como bloque */
-    margin: 0 auto; /* Centra horizontalmente */
-}
-
-/* Contenedor para imágenes de productos */
-.contenedor-imagen {
-    width: 100%;
-    height: 250px; /* Altura fija para uniformidad */
-    overflow: hidden;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f5f5f5; /* Fondo por si la imagen es más pequeña */
-}
-
-/* Imágenes de productos */
-.imagen-producto {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Muestra la imagen completa sin recortar */
-    transition: transform 0.3s ease;
-}
-
-/* Efecto hover para imágenes de productos */
-.imagen-producto:hover {
-    transform: scale(1.05);
-}
-
-/* Galería de productos */
 .galeria-productos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
+    gap: 40px;
 }
 
 .producto {
     background: white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: transform 0.3s ease;
+    padding: 30px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: var(--sombra-suave);
+    transition: var(--transicion);
+    position: relative;
+    overflow: hidden;
 }
 
 .producto:hover {
-    transform: translateY(-5px);
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .contenedor-imagen {
-        height: 200px;
-    }
-    
-    .imagen-hero {
-        max-height: 300px;
-    }
+.contenedor-imagen {
+    height: 280px;
+    background: transparent;
+    margin-bottom: 20px;
 }
 
-@media (max-width: 480px) {
-    .contenedor-imagen {
-        height: 180px;
-    }
-    
-    .galeria-productos {
-        grid-template-columns: 1fr;
-    }
+.producto img {
+    border-radius: 10px;
+    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.1)); /* Sombra a la silueta PNG */
 }
 
-
-/* Estilos para el footer */
-.info-contacto-footer {
+.producto h3 {
+    font-size: 1.8em;
     margin: 15px 0;
-    font-size: 0.9rem;
-    text-align: center;
+    color: var(--color-primario);
 }
 
-.info-contacto-footer p {
-    margin: 8px 0;
+.producto p {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 0.95em;
 }
 
-.info-contacto-footer a {
-    color: #e2ece7e1;
+.boton-comprar {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--color-primario);
+    color: var(--color-primario);
+    font-weight: bold;
     text-decoration: none;
+    border-radius: 10px;
+    transition: var(--transicion);
 }
 
-.info-contacto-footer a:hover {
-    text-decoration: underline;
-    color: #d3dfd8ec;
+.boton-comprar:hover {
+    background-color: var(--color-primario);
+    color: white;
+}
+
+/* --- CONTACTO & FOOTER --- */
+.contacto {
+    background-color: var(--color-secundario);
+    padding: 80px 5%;
+    position: relative;
+}
+
+.contacto form {
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: var(--sombra-suave);
+}
+
+.contacto input, .contacto textarea {
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.contacto input:focus, .contacto textarea:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    background: white;
+}
+
+footer {
+    background-color: #1a1a1a; /* Negro suave para contraste total */
+    padding: 40px;
+    color: #888;
+}
+
+footer a {
+    color: white;
+    transition: 0.3s;
+}
+
+footer a:hover {
+    color: var(--color-acento);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column-reverse; /* Imagen arriba en móvil */
+        text-align: center;
+        padding-top: 120px;
+    }
+    
+    .hero-contenido {
+        padding-right: 0;
+        margin-top: 30px;
+    }
+
+    .hero h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-imagen img {
+        box-shadow: 10px 10px 0 var(--color-primario);
+    }
+    
+    nav {
+        display: none; /* En un proyecto real aquí iría el menú hamburguesa */
+    }
 }
