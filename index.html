@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>HidroCOMEL | Jabones Artesanales</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HidroCOMEL | Jabones Artesanales</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
 <body>
 
     <header>
@@ -32,7 +32,8 @@
             <p>Descubre el poder de los ingredientes orgánicos en cada jabón HidroCOMEL.</p>
             <a href="#productos" class="boton">Ver Colección</a>
         </div>
-        
+        <div class="hero-imagen">
+             </div>
     </section>
 
     <hr>
@@ -48,7 +49,7 @@
                 </div>
                 <h3>Lavanda y Avena</h3>
                 <p>Relajante y exfoliante suave. Ideal para pieles sensibles.</p>
-                <a href="#" class="boton-comprar">Comprar</a>
+                <a href="#" class="boton-comprar">Comprar Cajas</a>
             </article>
 
             <article class="producto">
@@ -57,7 +58,7 @@
                 </div>
                 <h3>Cítricos Energizantes</h3>
                 <p>Aroma fresco para empezar el día. Con aceites esenciales de naranja.</p>
-                <a href="#" class="boton-comprar">Comprar</a>
+                <a href="#" class="boton-comprar">Comprar Cajas</a>
             </article>
 
             <article class="producto">
@@ -66,7 +67,7 @@
                 </div>
                 <h3>Carbón Purificante</h3>
                 <p>Desintoxica y limpia profundamente. Perfecto para pieles grasas.</p>
-                <a href="#" class="boton-comprar">Comprar</a>
+                <a href="#" class="boton-comprar">Comprar Cajas</a>
             </article>
 
         </div>
@@ -82,62 +83,110 @@
     <hr>
 
     <section id="contacto" class="contacto">
-    <h2>✉️ Contáctanos</h2>
-    <form id="formularioContacto">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
-        
-        <label for="email">Tu Email:</label>
-        <input type="email" id="email" name="email" required>
-        
-        <label for="mensaje">Mensaje:</label>
-        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-        
-        <button type="button" class="boton" onclick="enviarCorreo()">Enviar Mensaje</button>
-    </form>
-</section>
+        <h2>✉️ Contáctanos</h2>
+        <form id="formularioContacto">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            
+            <label for="email">Tu Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+            
+            <button type="button" class="boton" onclick="enviarCorreo()">Enviar Mensaje</button>
+        </form>
+    </section>
 
-<footer class="footer-premium">
-    <div class="contenedor-footer">
-        
-        <div class="columna-footer marca">
-            <img src="images/logo.png" alt="HidroCOMEL Logo" class="logo-footer"> 
-            <p>Jabones artesanales creados con ingredientes 100% orgánicos. Cuidamos tu piel mientras respetamos el planeta.</p>
-        </div>
+    <footer class="footer-premium">
+        <div class="contenedor-footer">
+            
+            <div class="columna-footer marca">
+                <img src="images/logo.png" alt="HidroCOMEL Logo" class="logo-footer"> 
+                <p>Jabones artesanales creados con ingredientes 100% orgánicos. Cuidamos tu piel mientras respetamos el planeta.</p>
+            </div>
 
-        <div class="columna-footer links">
-            <h3>Explorar</h3>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#productos">Colección</a></li>
-                <li><a href="#historia">Nuestra Filosofía</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </div>
+            <div class="columna-footer links">
+                <h3>Explorar</h3>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#productos">Colección</a></li>
+                    <li><a href="#historia">Nuestra Filosofía</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
 
-        <div class="columna-footer contacto-footer">
-            <h3>Contacto</h3>
-            <p><i class="fas fa-envelope"></i> kironaty@gmail.com</p>
-            <p><i class="fas fa-map-marker-alt"></i> Arequipa, Perú</p>
-            <p><i class="fab fa-whatsapp"></i> +51 900 000 000</p>
-        </div>
+            <div class="columna-footer contacto-footer">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-envelope"></i> kironaty@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Arequipa, Perú</p>
+                <p><i class="fab fa-whatsapp"></i> +51 900 000 000</p>
+            </div>
 
-        <div class="columna-footer social">
-            <h3>Síguenos</h3>
-            <div class="iconos-sociales">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-tiktok"></i></a>
+            <div class="columna-footer social">
+                <h3>Síguenos</h3>
+                <div class="iconos-sociales">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
             </div>
         </div>
+
+        <div class="barra-inferior">
+            <p>&copy; 2025 HidroCOMEL. Hecho con 🌿 en Perú.</p>
+        </div>
+    </footer>
+
+    <div id="modalCompra" class="modal-overlay">
+        <div class="modal-contenido">
+            <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
+            <div class="encabezado-modal">
+                <h3>Finalizar Compra Mayorista</h3>
+                <p>Estás llevando: <span id="productoSeleccionado" class="resaltado"></span></p>
+            </div>
+            <form id="formCompra" onsubmit="procesarCompra(event)">
+                <div class="grupo-input">
+                    <label>Cantidad de Cajas (24u/caja):</label>
+                    <div class="contador-cantidad">
+                        <button type="button" onclick="cambiarCantidad(-1)">-</button>
+                        <input type="number" id="cantidad" value="1" min="1" readonly>
+                        <button type="button" onclick="cambiarCantidad(1)">+</button>
+                    </div>
+                    <p id="infoTotal" style="font-size: 0.85em; color: #666; margin-top: 8px;">
+                        Total: 24 unidades
+                    </p>
+                </div>
+
+                <div class="grupo-input">
+                    <label>Tu Nombre:</label>
+                    <input type="text" id="clienteNombre" placeholder="Ej: María Pérez" required>
+                </div>
+                
+                <div class="grupo-input">
+                    <label>Método de pago:</label>
+                    <div class="opciones-pago">
+                        <label class="tarjeta-pago">
+                            <input type="radio" name="pago" value="Yape/Plin" checked>
+                            <div class="contenido-pago"><i class="fas fa-qrcode"></i><span>Yape/Plin</span></div>
+                        </label>
+                        <label class="tarjeta-pago">
+                            <input type="radio" name="pago" value="Transferencia">
+                            <div class="contenido-pago"><i class="fas fa-university"></i><span>Banco</span></div>
+                        </label>
+                        <label class="tarjeta-pago">
+                            <input type="radio" name="pago" value="Efectivo">
+                            <div class="contenido-pago"><i class="fas fa-money-bill-wave"></i><span>Efectivo</span></div>
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="boton-confirmar"><i class="fab fa-whatsapp"></i> Enviar Pedido</button>
+            </form>
+        </div>
     </div>
 
-    <div class="barra-inferior">
-        <p>&copy; 2025 HidroCOMEL. Hecho con 🌿 en Perú.</p>
-    </div>
-</footer>
     <script>
-        // Script de "Scroll Reveal" para animar elementos al bajar
+        // Animaciones y Contacto
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -147,19 +196,100 @@
         }, { threshold: 0.1 });
     
         document.querySelectorAll('.producto, .hero-contenido, h2, .contacto form').forEach((el) => {
-            el.classList.add('hidden'); // Agregamos clase base
+            el.classList.add('hidden'); 
             observer.observe(el);
         });
     
-        // Pequeña interacción para el formulario
         function enviarCorreo() {
             const btn = document.querySelector('.contacto button');
-            btn.innerHTML = '<i class="fas fa-check"></i> ¡Enviado!';
+            const textoOriginal = btn.innerHTML;
+            btn.innerHTML = '\u2705 ¡Enviado!'; // Check mark unicode
             btn.style.background = '#2ecc71';
             setTimeout(() => {
-                btn.innerHTML = 'Enviar Mensaje';
+                btn.innerHTML = textoOriginal;
                 btn.style.background = 'var(--color-primario)';
             }, 3000);
+        }
+
+        // --- LÓGICA DE COMPRA ---
+        const modal = document.getElementById('modalCompra');
+        const spanProducto = document.getElementById('productoSeleccionado');
+        const inputCantidad = document.getElementById('cantidad');
+        const infoTotal = document.getElementById('infoTotal');
+        let productoActual = "";
+
+        document.querySelectorAll('.boton-comprar').forEach(boton => {
+            boton.addEventListener('click', (e) => {
+                e.preventDefault();
+                const tarjeta = boton.closest('.producto');
+                const nombre = tarjeta.querySelector('h3').innerText;
+                productoActual = nombre;
+                spanProducto.innerText = nombre;
+                inputCantidad.value = 1; 
+                actualizarInfoCajas(); 
+                modal.classList.add('activo');
+            });
+        });
+
+        function cerrarModal() { modal.classList.remove('activo'); }
+        window.onclick = function(e) { if(e.target == modal) cerrarModal(); }
+
+        function cambiarCantidad(delta) {
+            let valor = parseInt(inputCantidad.value);
+            valor += delta;
+            if (valor < 1) valor = 1;
+            inputCantidad.value = valor;
+            actualizarInfoCajas(); 
+        }
+
+        function actualizarInfoCajas() {
+            const cajas = parseInt(inputCantidad.value);
+            const unidades = cajas * 24;
+            let mensaje = `Total: <strong>${unidades} jabones</strong>`;
+            
+            if (cajas > 6) {
+                // \u2728 es destello, \uD83C\uDFF7 es etiqueta
+                mensaje += ` <span style="color:#25D366; font-weight:bold; margin-left:5px;">(\u2728 ¡Aplica Descuento!)</span>`;
+            }
+            
+            infoTotal.innerHTML = mensaje;
+        }
+
+        function procesarCompra(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('clienteNombre').value;
+            const cajas = parseInt(inputCantidad.value);
+            const unidades = cajas * 24;
+            const pago = document.querySelector('input[name="pago"]:checked').value;
+            const telefonoTienda = "51900000000"; 
+            
+            // Lógica de Descuento
+            let textoDescuento = "No aplica";
+            if (cajas > 6) {
+                textoDescuento = "\u2705 S\u00CD (> 6 cajas)"; // Check mark + SI con tilde unicode
+            }
+            
+            // Mensaje Estético con Unicode (Indestructible)
+            // \uD83D\uDCE6 = Paquete
+            // \uD83D\uDD22 = Numeros
+            // \uD83C\uDFF7 = Etiqueta
+            // \uD83D\uDCB3 = Tarjeta
+            // \uD83D\uDC64 = Persona
+            
+            const mensaje = 
+                `*PEDIDO MAYORISTA - HIDROCOMEL*\n` +
+                `--------------------------------\n` +
+                `\uD83D\uDCE6 *Producto:* ${productoActual}\n` +
+                `\uD83D\uDD22 *Cajas:* ${cajas} (${unidades} unidades)\n` +
+                `\uD83C\uDFF7 *Descuento:* ${textoDescuento}\n` +
+                `\uD83D\uDCB3 *Pago:* ${pago}\n` +
+                `\uD83D\uDC64 *Cliente:* ${nombre}`;
+            
+            // Usamos encodeURIComponent para asegurar que todo llegue bien a WhatsApp
+            const url = `https://wa.me/${telefonoTienda}?text=${encodeURIComponent(mensaje)}`;
+            
+            window.open(url, '_blank');
+            cerrarModal();
         }
     </script>
 </body>
