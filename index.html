@@ -41,36 +41,7 @@
     <section id="productos" class="productos">
         <h2>✨ Nuestros Jabones Destacados</h2>
         
-        <div class="galeria-productos">
-            
-            <article class="producto">
-                <div class="contenedor-imagen">
-                    <img src="images/lavanda_avena.png" alt="Jabón de Lavanda y Avena" class="imagen-producto">
-                </div>
-                <h3>Lavanda y Avena</h3>
-                <p>Relajante y exfoliante suave. Ideal para pieles sensibles.</p>
-                <a href="#" class="boton-comprar">Comprar Cajas</a>
-            </article>
-
-            <article class="producto">
-                <div class="contenedor-imagen">
-                    <img src="images/citricos_energizantes.png" alt="Jabón de Cítricos Energizante" class="imagen-producto">
-                </div>
-                <h3>Cítricos Energizantes</h3>
-                <p>Aroma fresco para empezar el día. Con aceites esenciales de naranja.</p>
-                <a href="#" class="boton-comprar">Comprar Cajas</a>
-            </article>
-
-            <article class="producto">
-                <div class="contenedor-imagen">
-                    <img src="images/carbon_purificante.png" alt="Jabón de Carbón Activado" class="imagen-producto">
-                </div>
-                <h3>Carbón Purificante</h3>
-                <p>Desintoxica y limpia profundamente. Perfecto para pieles grasas.</p>
-                <a href="#" class="boton-comprar">Comprar Cajas</a>
-            </article>
-
-        </div>
+        <div class="galeria-productos"></div>
     </section>
 
     <hr>
@@ -142,7 +113,7 @@
         <div class="modal-contenido">
             <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
             <div class="encabezado-modal">
-                <h3>Finalizar Compra Mayorista</h3>
+                <h3>Finalizar Compra </h3>
                 <p>Estás llevando: <span id="productoSeleccionado" class="resaltado"></span></p>
             </div>
             <form id="formCompra" onsubmit="procesarCompra(event)">
@@ -186,6 +157,42 @@
     </div>
 
     <script>
+        // --- 0. GENERADOR DE PRODUCTOS (NUEVO) ---
+    const listaProductos = [
+        {
+            titulo: "Lavanda y Avena",
+            desc: "Relajante y exfoliante suave. Ideal para pieles sensibles.",
+            img: "images/lavanda_avena.png"
+        },
+        {
+            titulo: "Cítricos Energizantes",
+            desc: "Aroma fresco para empezar el día. Con aceites esenciales de naranja.",
+            img: "images/citricos_energizantes.png"
+        },
+        {
+            titulo: "Carbón Purificante",
+            desc: "Desintoxica y limpia profundamente. Perfecto para pieles grasas.",
+            img: "images/carbon_purificante.png"
+        },
+        {
+            titulo: "Caléndula y Manzanilla (Bebé)",
+            desc: "Hipoalergénico y ultra suave. Cuidado especial para la piel más delicada.",
+            img: "images/jabon_bebe.png" 
+        }
+    ];
+
+    const contenedor = document.querySelector('.galeria-productos');
+    // Generamos todo el HTML en una sola pasada
+    contenedor.innerHTML = listaProductos.map(prod => `
+        <article class="producto">
+            <div class="contenedor-imagen">
+                <img src="${prod.img}" alt="Jabón de ${prod.titulo}" class="imagen-producto">
+            </div>
+            <h3>${prod.titulo}</h3>
+            <p>${prod.desc}</p>
+            <a href="#" class="boton-comprar">Comprar</a>
+        </article>
+    `).join('');
         // Animaciones
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
