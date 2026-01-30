@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HidroCOMEL | Jabones Artesanales</title>
+    <link rel="icon" type="image/icon" href="images/icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
 </head>
 <body>
 
@@ -32,8 +34,6 @@
             <p>Descubre el poder de los ingredientes orgánicos en cada jabón HidroCOMEL.</p>
             <a href="#productos" class="boton">Ver Colección</a>
         </div>
-        <div class="hero-imagen">
-             </div>
     </section>
 
     <hr>
@@ -120,7 +120,7 @@
                 <h3>Contacto</h3>
                 <p><i class="fas fa-envelope"></i> kironaty@gmail.com</p>
                 <p><i class="fas fa-map-marker-alt"></i> Arequipa, Perú</p>
-                <p><i class="fab fa-whatsapp"></i> +51 910 022 701</p>
+                <p><i class="fab fa-whatsapp"></i> +51 900 000 000</p>
             </div>
 
             <div class="columna-footer social">
@@ -186,7 +186,7 @@
     </div>
 
     <script>
-        // Animaciones y Contacto
+        // Animaciones
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -200,18 +200,50 @@
             observer.observe(el);
         });
     
+        // -----------------------------------------------------
+        // 1. FUNCIÓN DE CONTACTO (CORREO ELECTRÓNICO)
+        // -----------------------------------------------------
         function enviarCorreo() {
+            // Obtener valores del formulario de contacto
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const mensaje = document.getElementById('mensaje').value;
+
+            // Validación simple
+            if(!nombre || !email || !mensaje) {
+                alert("Por favor completa todos los campos para enviarnos un mensaje.");
+                return;
+            }
+
+            // Datos de destino
+            const correoDestino = "kironaty@gmail.com";
+            const asunto = `Nuevo Mensaje Web de ${nombre}`;
+            const cuerpo = `Hola HidroCOMEL,\n\nTienes un nuevo mensaje de contacto:\n\n` + 
+                           `Nombre: ${nombre}\n` + 
+                           `Email: ${email}\n\nMensaje:\n${mensaje}`;
+
+            // Crear enlace mailto
+            const mailtoLink = `mailto:${correoDestino}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+
+            // Animación visual del botón
             const btn = document.querySelector('.contacto button');
             const textoOriginal = btn.innerHTML;
-            btn.innerHTML = '\u2705 ¡Enviado!'; // Check mark unicode
+            btn.innerHTML = '\u2705 Abrir Correo...'; // Check unicode
             btn.style.background = '#2ecc71';
+            
+            // Abrir cliente de correo
+            window.location.href = mailtoLink;
+
+            // Restaurar botón después de 3 seg
             setTimeout(() => {
                 btn.innerHTML = textoOriginal;
                 btn.style.background = 'var(--color-primario)';
             }, 3000);
         }
 
-        // --- LÓGICA DE COMPRA ---
+        // -----------------------------------------------------
+        // 2. FUNCIÓN DE COMPRA (WHATSAPP)
+        // -----------------------------------------------------
         const modal = document.getElementById('modalCompra');
         const spanProducto = document.getElementById('productoSeleccionado');
         const inputCantidad = document.getElementById('cantidad');
@@ -248,10 +280,8 @@
             let mensaje = `Total: <strong>${unidades} jabones</strong>`;
             
             if (cajas > 6) {
-                // \u2728 es destello, \uD83C\uDFF7 es etiqueta
                 mensaje += ` <span style="color:#25D366; font-weight:bold; margin-left:5px;">(\u2728 ¡Aplica Descuento!)</span>`;
             }
-            
             infoTotal.innerHTML = mensaje;
         }
 
@@ -261,20 +291,15 @@
             const cajas = parseInt(inputCantidad.value);
             const unidades = cajas * 24;
             const pago = document.querySelector('input[name="pago"]:checked').value;
-            const telefonoTienda = "51910022701"; 
+            
+            // TU NUMERO DE WHATSAPP
+            const telefonoTienda = "51900000000"; 
             
             // Lógica de Descuento
             let textoDescuento = "No aplica";
             if (cajas > 6) {
-                textoDescuento = "\u2705 S\u00CD (> 6 cajas)"; // Check mark + SI con tilde unicode
+                textoDescuento = "\u2705 S\u00CD (> 6 cajas)"; 
             }
-            
-            // Mensaje Estético con Unicode (Indestructible)
-            // \uD83D\uDCE6 = Paquete
-            // \uD83D\uDD22 = Numeros
-            // \uD83C\uDFF7 = Etiqueta
-            // \uD83D\uDCB3 = Tarjeta
-            // \uD83D\uDC64 = Persona
             
             const mensaje = 
                 `*PEDIDO MAYORISTA - HIDROCOMEL*\n` +
@@ -285,9 +310,7 @@
                 `\uD83D\uDCB3 *Pago:* ${pago}\n` +
                 `\uD83D\uDC64 *Cliente:* ${nombre}`;
             
-            // Usamos encodeURIComponent para asegurar que todo llegue bien a WhatsApp
             const url = `https://wa.me/${telefonoTienda}?text=${encodeURIComponent(mensaje)}`;
-            
             window.open(url, '_blank');
             cerrarModal();
         }
